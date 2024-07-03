@@ -2,7 +2,7 @@
   "name": "@maxpp/processlogger",
   "version": "1.0.6",
   "description": "A class function for structured logging of processes from start to finish.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"
