@@ -1,5 +1,5 @@
 {
-  "name": "process-logger",
+  "name": "processlogger",
   "version": "1.0.0",
   "description": "A class function for structured logging of processes from start to finish.",
   "main": "index.js",
