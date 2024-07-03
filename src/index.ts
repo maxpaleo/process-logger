@@ -46,11 +46,11 @@ const lines = `----------`;
  * ### Example log output:
  * ``` sql
  * ----- START DATASOURCE - Process logger. -----
- * systemlog.datasource: Creating data source
- * systemlog.datasource: SUCCESS - Fetched data source template
- * systemlog.datasource: SUCCESS - Fetched data set template
- * systemlog.datasource: Parsed data source template
- * systemlog.datasource: Parsed data set template
+ * processlog.datasource: Creating data source
+ * processlog.datasource: SUCCESS - Fetched data source template
+ * processlog.datasource: SUCCESS - Fetched data set template
+ * processlog.datasource: Parsed data source template
+ * processlog.datasource: Parsed data set template
  * ----- END DATASOURCE - Process logger. Completed in 1.46 seconds. -----
  * ```
  */
@@ -91,7 +91,7 @@ export class ProcessLog {
   /* ----------------------------------- Log ---------------------------------- */
   private log(message: string) {
     if (this.active) {
-      console.log(chalk.blue(`systemlog.${this.processName}:`), message);
+      console.log(chalk.blue(`processlog.${this.processName}:`), message);
     }
   }
 
