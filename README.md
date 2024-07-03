@@ -12,7 +12,7 @@ A class function for structured logging of processes from start to finish.
 
 ### Installation 
   ```bash
-    npm install @maxpp/processlogger
+    npm i @maxpp/processlogger
   ```
 
 ### Import 
