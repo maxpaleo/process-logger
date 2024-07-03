@@ -67,7 +67,15 @@ export class ProcessLog {
   }
 
   /* ---------------------------------- Start --------------------------------- */
-  public static start({ name, log = true }: { name: string; log?: boolean }) {
+  public static start({
+    name,
+    log = true,
+    description,
+  }: {
+    name: string;
+    log?: boolean;
+    description?: string;
+  }) {
     const process = new ProcessLog(name);
     this.processes[name] = process;
     process.active = log;
@@ -79,6 +87,9 @@ export class ProcessLog {
           )} ${lines}`
         )
       );
+      if (description) {
+        console.log(chalk.grey(`Process description: ${description}`));
+      }
     }
 
     /* --------------- Dynamically creates a property on the class -------------- */
