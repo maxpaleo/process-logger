@@ -8,31 +8,31 @@ type ProcessMethods = {
 const lines = `----------`;
 
 /**
- * ## ProcessLog
+ * # ProcessLog
  * A class function for structured logging of processes from start to finish.
  *
- * Features:
+ * Features
  * - Start and end process logging with visibility into the process duration.
  * - Dynamically enable or disable logging for specific processes.
  * - Use colored console output for better readability and distinction.
  *
- * ### Usage:
- *  - Starting a process:
+ * ## Usage
+ *   Start a process:
  *   ```typescript
  *   ProcessLog.start({ name: "processName", log: true }); // Start the process by naming it. You can set the log to false to disable logging the process.
  *   ```
  *
- *  - Logging messages within a process:
+ *   Logging messages within a process:
  *   ```typescript
  *   ProcessLog.processName.log("Message to log");
  *   ```
  *
- *  - Ending a process:
+ *   Ending a process:
  *   ```typescript
  *   ProcessLog.processName.end();
  *   ```
  * ---
- * ### Examples:
+ * ## Examples
  *   ```typescript
  *   ProcessLog.start({ name: "datasource", log: true }); // Start the process
  *   ProcessLog.datasource.log("Creating data source"); // Log a message
@@ -43,7 +43,7 @@ const lines = `----------`;
  *   ProcessLog.datasource.end(); // End the process
  *   ```
  * ---
- * ### Example log output:
+ * ## Example log output
  * ``` sql
  * ----- START DATASOURCE - Process logger. -----
  * processlog.datasource: Creating data source
@@ -88,9 +88,7 @@ export class ProcessLog {
    */
   public static start({
     name,
-
     log = true,
-
     description,
   }: {
     /**
