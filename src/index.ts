@@ -97,7 +97,7 @@ export class ProcessLog {
         )
       );
       if (description) {
-        console.log(chalk.grey(`Process description: ${description}`));
+        console.log(chalk.grey(`Description: ${description}`));
       }
     }
 
