@@ -118,12 +118,3 @@ export class ProcessLog {
     }
   }
 }
-
-// Example usage
-ProcessLog.start({ name: "datasource", log: true });
-ProcessLog.datasource.log("Creating data source");
-ProcessLog.datasource.log("SUCCESS - Fetched data source template");
-ProcessLog.datasource.log("SUCCESS - Fetched data set template");
-ProcessLog.datasource.log("Parsed data source template");
-ProcessLog.datasource.log("Parsed data set template");
-ProcessLog.datasource.end();
