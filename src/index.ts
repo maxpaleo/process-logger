@@ -67,22 +67,53 @@ export class ProcessLog {
   }
 
   /* ---------------------------------- Start --------------------------------- */
+  /**
+   * Start a new log process by providing its name.
+   *
+   * ### Example:
+   * ```typescript
+   * ProcessLog.start({ name: "datasource" });
+   * ```
+   * ---
+   * - Turn off logging for a process:
+   * - Set `log` to false
+   * ```typescript
+   * ProcessLog.start({ name: "datasource", log: false });
+   * ```
+   * ---
+   * - Add an optional description to the process:
+   * ```typescript
+   * ProcessLog.start({ name: "datasource", description: "Fetches data source templates." });
+   * ```
+   */
   public static start({
-    /**
-     * @param {string} name - The name of the process to start.
-     */
     name,
-    /**
-     * @param {boolean} log - Enable or disable logging for the process.
-     */
+
     log = true,
-    /**
-     * @param {string} description - A description of the process.
-     */
+
     description,
   }: {
+    /**
+     * @param {string} name - The name of the process to start.
+     * - This will be used to reference the process in the logs.
+     * @example
+     * processLog.start({ name: "datasource" });
+     */
     name: string;
+    /**
+     * @param {boolean} log - Set to false to disable logging for the process
+     * - When set to false, the process will not log any messages.
+     * @default true
+     * @example
+     * processLog.start({ name: "datasource", log: false });
+     */
     log?: boolean;
+    /**
+     * @param {string} description - A description of the process.
+     * - This will be displayed when the process starts.
+     * @example
+     * processLog.start({ name: "datasource", description: "Fetches data source templates." });
+     */
     description?: string;
   }) {
     const process = new ProcessLog(name);
