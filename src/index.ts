@@ -68,8 +68,17 @@ export class ProcessLog {
 
   /* ---------------------------------- Start --------------------------------- */
   public static start({
+    /**
+     * @param {string} name - The name of the process to start.
+     */
     name,
+    /**
+     * @param {boolean} log - Enable or disable logging for the process.
+     */
     log = true,
+    /**
+     * @param {string} description - A description of the process.
+     */
     description,
   }: {
     name: string;
