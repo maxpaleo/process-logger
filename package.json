@@ -1,6 +1,6 @@
 {
   "name": "@maxpp/processlogger",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A class function for structured logging of processes from start to finish.",
   "main": "dist/index.js",
   "scripts": {
@@ -16,7 +16,7 @@
   "author": "Max Pauwels",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^5.3.0"
+    "chalk": "^4.1.2"
   },
   "publishConfig": {
     "access": "public"
