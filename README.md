@@ -60,5 +60,12 @@ systemlog.datasource: Parsed data set template
 ----- END DATASOURCE - Process logger. Completed in 1.46 seconds. -----
   ```
 
+### Disable a process log
+Set the log property to false to disable logging for a specific process. This way you can leave the logs in your code and enable them as needed.
+  ```typescript
+  ProcessLog.start({ name: "datasource", log: false }); // Set log to false to disable logging.
+  ```
+
+
 ### Dependencies
 - chalk - For colored console output.
