@@ -12,7 +12,12 @@ A class function for structured logging of processes from start to finish.
 
 ### Installation 
   ```bash
-    npm install @systemlog/processlog
+    npm install @maxpp/processlogger
+  ```
+
+### Import 
+  ```typescript
+    import { ProcessLog } from "@maxpp/processlogger";
   ```
 
 ### Usage
