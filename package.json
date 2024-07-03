@@ -1,6 +1,6 @@
 {
   "name": "@maxpp/processlogger",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A class function for structured logging of processes from start to finish.",
   "main": "index.js",
   "scripts": {
