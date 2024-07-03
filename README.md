@@ -5,9 +5,9 @@ A class function for structured logging of processes from start to finish.
 - You can leave the logs in your code and enable or disable them as needed by setting the log property of each process to true or false.
 
 **Features:**
-- Start and end process logging with visibility into the process duration.
-- Dynamically enable or disable logging for specific processes.
-- Use colored console output for better readability and distinction.
+- Start and end new process logs with a name.
+- Easily enable or disable logging for a specific process.
+- Clearly logs steps of a process and logs the duration of the process.
 
 
 ### Installation 
