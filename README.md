@@ -71,7 +71,7 @@ This example shows the process logs of 3 processes that run in sequence. The log
 - created_project_validation (Yellow)
 - get_content_from_s3 (Pink)
   
-<img src="/media/log-example.png"> 
+<img src="https://github.com/maxpaleo/process-logger/raw/main/media/log-example.png"> 
 
 ### Disable a process log
 Set the log property to false to disable logging for a specific process. This way you can leave the logs in your code and enable them as needed.
