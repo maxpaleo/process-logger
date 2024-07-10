@@ -61,10 +61,12 @@ myProcessName: Parsed data set template
   ```
 
 ### Example log output
-This example shows the process logs of 3 processes that run in sequence. Each process is asigned a random color when it starts which makes it easier to distinguish the logs of each process.
-- updated_project_blocks (This operation logged in blue and completed in 0.017 seconds.)
-- created_project_validation (This operation logged in yellow and completed in 0.949 seconds.)
-- get_content_from_s3 (This operation logged in pink and completed in 0.476 seconds.)
+This example shows the process logs of 5 processes that run in sequence. Each process is asigned a random color when it starts which makes it easier to distinguish the logs of each process.
+- `updated_project_blocks` (This operation logged in blue and completed in 0.062 seconds.)
+- `created_project_validation` (This operation logged in salmon and did not complete.)
+- `update_project_queue` (This operation logged in purple and did not complete.)
+- `update_project_s3_files` (This operation logged in fushia and completed in 0.954 seconds.)
+- `get_content_from_s`3 (This operation logged in green and completed in 0.494 seconds.)
   
 <img src="https://github.com/maxpaleo/process-logger/raw/main/media/log-example.png"> 
 
