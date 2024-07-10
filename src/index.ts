@@ -68,10 +68,8 @@ export class ProcessLog {
     chalk.red,
     chalk.green,
     chalk.yellow,
-    chalk.blue,
     chalk.magenta,
     chalk.cyan,
-    chalk.gray,
   ];
 
   static [name: string]: ProcessMethods | any;
@@ -137,11 +135,18 @@ export class ProcessLog {
     this.processes[name] = process;
     process.active = log;
     if (log) {
+      // console.log(
+      //   processColor(
+      //     `${chalk.green(
+      //       `${lines} START -`
+      //     )} ${name.toUpperCase()} ${chalk.grey(` - Process logger.`)} ${lines}`
+      //   )
+      // );
       console.log(
         processColor(
-          `${chalk.green(
-            `${lines} START -`
-          )} ${name.toUpperCase()} ${chalk.grey(` - Process logger.`)} ${lines}`
+          chalk.green(`${lines} START -`),
+          name.toUpperCase(),
+          chalk.grey(` - Process logger. ${lines}`)
         )
       );
       if (description) {
@@ -159,7 +164,11 @@ export class ProcessLog {
   /* ----------------------------------- Log ---------------------------------- */
   private log(message: string) {
     if (this.active) {
-      console.log(this.color(`•`), chalk.blue(`${this.processName}:`), message);
+      console.log(
+        chalk.bgBlue.bold(`•`),
+        this.color(this.processName),
+        message
+      );
     }
   }
 
@@ -168,14 +177,19 @@ export class ProcessLog {
     if (this.active) {
       const endTime = new Date();
       const duration = (endTime.getTime() - this.startTime.getTime()) / 1000; // Duration in seconds
+      // console.log(
+      //   chalk.green(
+      //     `${lines} END - ${this.color(
+      //       this.processName.toUpperCase()
+      //     )} ${chalk.grey(
+      //       ` - Process logger. Completed in ${duration} seconds.`
+      //     )} ${lines}`
+      //   )
+      // );
       console.log(
-        chalk.green(
-          `${lines} END - ${this.color(
-            this.processName.toUpperCase()
-          )} ${chalk.grey(
-            ` - Process logger. Completed in ${duration} seconds.`
-          )} ${lines}`
-        )
+        chalk.green(`${lines} END -`),
+        this.color(this.processName),
+        chalk.green(`${lines}`)
       );
     }
     delete ProcessLog[this.processName];
