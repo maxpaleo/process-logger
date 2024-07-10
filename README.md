@@ -68,7 +68,7 @@ This example shows the process logs of 5 processes that run in sequence. Each pr
 - `update_project_s3_files` (This operation logged in fushia and completed in 0.954 seconds.)
 - `get_content_from_s`3 (This operation logged in green and completed in 0.494 seconds.)
   
-<img src="https://github.com/maxpaleo/process-logger/raw/main/media/log-example.png"> 
+<img src="https://github.com/maxpaleo/process-logger/raw/main/media/log-example.png">
 
 ### Disable a process log
 Set the log property to false to disable logging for a specific process. This way you can leave the logs in your code and enable them as needed.
