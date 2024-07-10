@@ -135,18 +135,12 @@ export class ProcessLog {
     this.processes[name] = process;
     process.active = log;
     if (log) {
-      // console.log(
-      //   processColor(
-      //     `${chalk.green(
-      //       `${lines} START -`
-      //     )} ${name.toUpperCase()} ${chalk.grey(` - Process logger.`)} ${lines}`
-      //   )
-      // );
       console.log(
         processColor(
-          chalk.green(`${lines} START -`),
+          chalk.white.bgGreen(`${lines} START -`),
           name,
-          chalk.grey(` - Process logger. ${lines}`)
+          chalk.white.bgGreen(`${lines}`),
+          chalk.grey(`- Process logger.`)
         )
       );
       if (description) {
@@ -164,10 +158,7 @@ export class ProcessLog {
   /* ----------------------------------- Log ---------------------------------- */
   private log(message: string) {
     if (this.active) {
-      console.log(
-        this.color(`• ${this.processName}`),
-        message
-      );
+      console.log(this.color(`• ${this.processName}`), message);
     }
   }
 
@@ -176,19 +167,11 @@ export class ProcessLog {
     if (this.active) {
       const endTime = new Date();
       const duration = (endTime.getTime() - this.startTime.getTime()) / 1000; // Duration in seconds
-      // console.log(
-      //   chalk.green(
-      //     `${lines} END - ${this.color(
-      //       this.processName.toUpperCase()
-      //     )} ${chalk.grey(
-      //       ` - Process logger. Completed in ${duration} seconds.`
-      //     )} ${lines}`
-      //   )
-      // );
+
       console.log(
-        chalk.green(`${lines} END -`),
+        chalk.white.bgGreen(`${lines} END -`),
         this.color(this.processName),
-        chalk.green(`${lines}`),
+        chalk.white.bgGreen(`${lines}`),
         chalk.grey(`- Completed in ${duration} seconds.`)
       );
     }
