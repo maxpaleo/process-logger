@@ -11,9 +11,11 @@
     "skipLibCheck": true,
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "processLogTest.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "processLogTest.ts"
   ]
 }
