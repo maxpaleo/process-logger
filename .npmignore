@@ -1,0 +1,10 @@
+src/
+node_modules/
+processLogTest.d.ts
+processLogTest.js
+processLogTest.ts
+tsconfig.json
+media/
+.github/
+.gitignore
+.npmignore
