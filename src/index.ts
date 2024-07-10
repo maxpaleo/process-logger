@@ -65,11 +65,17 @@ export class ProcessLog {
    * Random colors for the process logs.
    */
   private static colors = [
-    chalk.red,
-    chalk.green,
-    chalk.yellow,
+    // chalk.yellow,
     chalk.magenta,
     chalk.cyan,
+    chalk.hex("#FC814A"),
+    chalk.hex("#072AC8"),
+    chalk.hex("#FCF300"),
+    chalk.hex("#8367C7"),
+    chalk.hex("#36827F"),
+    chalk.hex("#D6A99A"),
+    //FF88DC
+    //#FC814A
   ];
 
   static [name: string]: ProcessMethods | any;
