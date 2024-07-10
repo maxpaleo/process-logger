@@ -66,7 +66,7 @@ processlog.datasource: Parsed data set template
   ```
 
 ### Example log output
-This example shows the process logs of 3 processes that run in sequence. The log output is color coded to make it easier to read.
+This example shows the process logs of 3 processes that run in sequence. Each process is asigned a random color when it starts which makes it easier to distinguish the logs of each process.
 - updated_project_blocks (Blue)
 - created_project_validation (Yellow)
 - get_content_from_s3 (Pink)
