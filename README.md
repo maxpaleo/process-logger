@@ -30,12 +30,12 @@ A class function for structured logging of processes from start to finish.
 
   **Log messages within a process: - `ProcessLog.yourProcess.log()`**
   ```typescript
-  ProcessLog.processName.log("Message to log"); // Start the process by naming it. You can set the log to false to disable logging the process.
+  ProcessLog.processName.log("Message to log"); // Log a message within the process.
   ```
 
   **Ending a process: - `ProcessLog.yourProcess.end()`**
   ```typescript
-  ProcessLog.processName.end(); // Start the process by naming it. You can set the log to false to disable logging the process.
+  ProcessLog.processName.end(); // Stop the process and log the duration.
   ```
 
 ### Example
@@ -65,12 +65,19 @@ processlog.datasource: Parsed data set template
 ----- END DATASOURCE - Process logger. Completed in 1.46 seconds. -----
   ```
 
+### Example log output
+This example shows the process logs of 3 processes that run in sequence. The log output is color coded to make it easier to read.
+- updated_project_blocks (Blue)
+- created_project_validation (Yellow)
+- get_content_from_s3 (Pink)
+  
+<img src="/media/log-example.png"> 
+
 ### Disable a process log
 Set the log property to false to disable logging for a specific process. This way you can leave the logs in your code and enable them as needed.
   ```typescript
   ProcessLog.start({ name: "datasource", log: false }); // Set log to false to disable logging.
   ```
-
 
 ### Dependencies
 - chalk - For colored console output.
