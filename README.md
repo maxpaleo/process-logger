@@ -22,47 +22,42 @@ A class function for structured logging of processes from start to finish.
 
 ### Usage
 
-  **Starting a process: - `ProcesslLog.start()`**
   ```typescript
-  ProcessLog.start({ name: "processName" }); // Start the process by naming it. You can set the log to false to disable logging the process.
+  ProcessLog.start({ name: "myProcessName" }); // Start the process by naming it.
+  ProcessLog.myProcessName.log("Message to log"); // Log a message within the process.
+  ProcessLog.myProcessName.end(); // Stop the process and log the duration.
   ```
 
-
-  **Log messages within a process: - `ProcessLog.yourProcess.log()`**
-  ```typescript
-  ProcessLog.processName.log("Message to log"); // Log a message within the process.
-  ```
-
-  **Ending a process: - `ProcessLog.yourProcess.end()`**
-  ```typescript
-  ProcessLog.processName.end(); // Stop the process and log the duration.
-  ```
+### Operations
+ **`ProcesslLog.start({name: ""})`** Start a new process.
+ **`ProcessLog.yourProcess.log()`** Log messages within a process.
+ **`ProcessLog.yourProcess.end()`** End a process and log the duration.
 
 ### Example
   ```typescript
-   ProcessLog.start({ name: "datasource", log: true }); // Start the process. Set log to false to disable logging.
+   ProcessLog.start({ name: "myProcessName", log: true }); // Start the process. Set log to false to disable logging.
    // Your code here
-   ProcessLog.datasource.log("Creating data source"); // Log a message
+   ProcessLog.myProcessName.log("Creating data source"); // Log a message
    // Your code here
-   ProcessLog.datasource.log("SUCCESS - Fetched data source template");
+   ProcessLog.myProcessName.log("SUCCESS - Fetched data source template");
    // Your code here
-   ProcessLog.datasource.log("SUCCESS - Fetched data set template");
+   ProcessLog.myProcessName.log("SUCCESS - Fetched data set template");
     // Your code here
-   ProcessLog.datasource.log("Parsed data source template");
+   ProcessLog.myProcessName.log("Parsed data source template");
    // Your code here
-   ProcessLog.datasource.log("Parsed data set template");
-   ProcessLog.datasource.end(); // End the process and log the duration
+   ProcessLog.myProcessName.log("Parsed data set template");
+   ProcessLog.myProcessName.end(); // End the process and log the duration
 ```
 
-### Example log output
+### Example output
  ```sql 
- ----- START DATASOURCE - Process logger. -----
-processlog.datasource: Creating data source
-processlog.datasource: SUCCESS - Fetched data source template
-processlog.datasource: SUCCESS - Fetched data set template
-processlog.datasource: Parsed data source template
-processlog.datasource: Parsed data set template
------ END DATASOURCE - Process logger. Completed in 1.46 seconds. -----
+ ----- START - MYPROCESSNAME -----
+myProcessName: Creating data source
+myProcessName: SUCCESS - Fetched data source template
+myProcessName: SUCCESS - Fetched data set template
+myProcessName: Parsed data source template
+myProcessName: Parsed data set template
+----- END - MYPROCESSNAME - Completed in 1.46 seconds. -----
   ```
 
 ### Example log output
