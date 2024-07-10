@@ -137,9 +137,9 @@ export class ProcessLog {
     if (log) {
       console.log(
         processColor(
-          chalk.white.bgGreen(`${lines} START -`),
+          chalk.green.bold(`${lines} START -`),
           name,
-          chalk.white.bgGreen(`${lines}`),
+          chalk.green.bold(`${lines}`),
           chalk.grey(`- Process logger.`)
         )
       );
@@ -169,9 +169,9 @@ export class ProcessLog {
       const duration = (endTime.getTime() - this.startTime.getTime()) / 1000; // Duration in seconds
 
       console.log(
-        chalk.bgGreen(`${lines} END -`),
+        chalk.green.bold(`${lines} END -`),
         this.color(this.processName),
-        chalk.bgGreen(`${lines}`),
+        chalk.green.bold(`${lines}`),
         chalk.grey(`- Completed in ${duration} seconds.`)
       );
     }
