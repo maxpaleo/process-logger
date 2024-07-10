@@ -59,11 +59,13 @@ export class ProcessLog {
   private logs: string[] = [];
   private active: boolean = true;
   private startTime: Date = new Date();
+  private color: chalk.Chalk;
 
   static [name: string]: ProcessMethods | any;
 
-  private constructor(private processName: string) {
+  private constructor(private processName: string, color: chalk.Chalk) {
     this.startTime = new Date(); // Initialize the start time when the process is created
+    this.color = color; // Initialize the color for the logs
   }
 
   /* ---------------------------------- Start --------------------------------- */
@@ -114,12 +116,16 @@ export class ProcessLog {
      */
     description?: string;
   }) {
-    const process = new ProcessLog(name);
+    const colorHex = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+    const processColor = chalk.hex(colorHex);
+
+    const process = new ProcessLog(name, processColor);
+
     this.processes[name] = process;
     process.active = log;
     if (log) {
       console.log(
-        chalk.green(
+        processColor(
           `${lines} START - ${name.toUpperCase()} ${chalk.grey(
             ` - Process logger.`
           )} ${lines}`
@@ -140,7 +146,7 @@ export class ProcessLog {
   /* ----------------------------------- Log ---------------------------------- */
   private log(message: string) {
     if (this.active) {
-      console.log(chalk.blue(`processlog.${this.processName}:`), message);
+      console.log(this.color(`processlog.${this.processName}:`), message);
     }
   }
 
@@ -151,7 +157,9 @@ export class ProcessLog {
       const duration = (endTime.getTime() - this.startTime.getTime()) / 1000; // Duration in seconds
       console.log(
         chalk.green(
-          `${lines} END - ${this.processName.toUpperCase()} ${chalk.grey(
+          `${lines} END - ${this.color(
+            this.processName.toUpperCase()
+          )} ${chalk.grey(
             ` - Process logger. Completed in ${duration} seconds.`
           )} ${lines}`
         )
