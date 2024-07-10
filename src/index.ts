@@ -169,9 +169,9 @@ export class ProcessLog {
       const duration = (endTime.getTime() - this.startTime.getTime()) / 1000; // Duration in seconds
 
       console.log(
-        chalk.white.bgGreen(`${lines} END -`),
+        chalk.bgGreen(`${lines} END -`),
         this.color(this.processName),
-        chalk.white.bgGreen(`${lines}`),
+        chalk.bgGreen(`${lines}`),
         chalk.grey(`- Completed in ${duration} seconds.`)
       );
     }
