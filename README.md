@@ -74,5 +74,10 @@ Set the log property to false to disable logging for a specific process. This wa
   ProcessLog.start({ name: "datasource", log: false }); // Set log to false to disable logging.
   ```
 
+### Recommended use
+- Add clear operation logs for each of your processes and leave them in your code.
+- Once implemented, disabled the operation logs by setting the log property to false.
+- During development or debugging, other team members can easily enable the logs to immediately see the process runnign and identify any issues.
+
 ### Dependencies
 - chalk - For colored console output.
