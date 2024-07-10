@@ -145,7 +145,7 @@ export class ProcessLog {
       console.log(
         processColor(
           chalk.green(`${lines} START -`),
-          name.toUpperCase(),
+          name,
           chalk.grey(` - Process logger. ${lines}`)
         )
       );
@@ -165,8 +165,7 @@ export class ProcessLog {
   private log(message: string) {
     if (this.active) {
       console.log(
-        chalk.bgBlue.bold(`•`),
-        this.color(this.processName),
+        this.color(`• ${this.processName}`),
         message
       );
     }
@@ -189,7 +188,8 @@ export class ProcessLog {
       console.log(
         chalk.green(`${lines} END -`),
         this.color(this.processName),
-        chalk.green(`${lines}`)
+        chalk.green(`${lines}`),
+        chalk.grey(`- Completed in ${duration} seconds.`)
       );
     }
     delete ProcessLog[this.processName];
