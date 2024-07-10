@@ -12,7 +12,8 @@
   },
   "include": [
     "src/**/*",
-    "processLogTest.ts"
+    "processLogTest.ts",
+    "media/**/*"
   ],
   "exclude": [
     "node_modules",
