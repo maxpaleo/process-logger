@@ -61,6 +61,20 @@ export class ProcessLog {
   private startTime: Date = new Date();
   private color: chalk.Chalk;
 
+  /**
+   * Random colors for the process logs.
+   */
+  private static colors = [
+    chalk.red,
+    chalk.green,
+    chalk.yellow,
+    chalk.blue,
+    chalk.magenta,
+    chalk.cyan,
+    chalk.white,
+    chalk.gray,
+  ];
+
   static [name: string]: ProcessMethods | any;
 
   private constructor(private processName: string, color: chalk.Chalk) {
@@ -116,8 +130,8 @@ export class ProcessLog {
      */
     description?: string;
   }) {
-    const colorHex = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-    const processColor = chalk.hex(colorHex);
+    const colorIndex = Math.floor(Math.random() * this.colors.length);
+    const processColor = this.colors[colorIndex];
 
     const process = new ProcessLog(name, processColor);
 
