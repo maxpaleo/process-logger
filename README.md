@@ -1,14 +1,14 @@
-## ProcessLog
+## Process Log
 
-A class function for structured logging of processes from start to finish.
-- Useful to log detailed processes in stages during development or debugging.
-- You can leave the logs in your code and enable or disable them as needed by setting the log property of each process to true or false.
+A logging function for used to log steps of a process.
+- The ideal is to leave the logs in your code and enable or disable them as needed by changing the `log` property in your Log.start() call.
+- This is useful to quickly log the flow of a process when developing or debugging, and other developers can easily enable or disable the logs to see the process running.
 
 **Features:**
 - Start and end new process logs with a name.
 - Easily enable or disable logging for a specific process.
 - Clearly logs steps of a process and logs the duration of the process.
-
+- Proces logs are colored for easy identification. The colors are randomly assigned per process, or you can set a specific color per process.
 
 ### Installation 
   ```bash
@@ -17,46 +17,39 @@ A class function for structured logging of processes from start to finish.
 
 ### Import 
   ```typescript
-    import { ProcessLog } from "@maxpp/processlogger";
+    import { Log } from "@maxpp/processlogger";
   ```
 
 ### Usage
 
   ```typescript
-  ProcessLog.start({ name: "myProcessName" }); // Start the process by naming it.
-  ProcessLog.myProcessName.log("Message to log"); // Log a message within the process.
-  ProcessLog.myProcessName.end(); // Stop the process and log the duration.
+Log.start({ name: "myProcess", log: true }); // Start the process by naming it and decide if it should log.
+Log.log.myProcess("Message to log"); // Log a message within the process.
+Log.end.myProcess(); // Stop the process and log the duration.
   ```
 
 ### Operations
- **`ProcesslLog.start({name: ""})`** Start a new process.
- **`ProcessLog.yourProcess.log()`** Log messages within a process.
- **`ProcessLog.yourProcess.end()`** End a process and log the duration.
+- `Log.start({name: "myProcess", log: boolean})`: Start a new process and decide if it should log.
+- `Log.log.myProcess(message: string)`: Log messages within a process.
+- `Log.end.myProcess()`: End a process and log the duration.
 
 ### Example
   ```typescript
-   ProcessLog.start({ name: "myProcessName", log: true }); // Start the process. Set log to false to disable logging.
-   // Your code here
-   ProcessLog.myProcessName.log("Creating data source"); // Log a message
-   // Your code here
-   ProcessLog.myProcessName.log("SUCCESS - Fetched data source template");
-   // Your code here
-   ProcessLog.myProcessName.log("SUCCESS - Fetched data set template");
-    // Your code here
-   ProcessLog.myProcessName.log("Parsed data source template");
-   // Your code here
-   ProcessLog.myProcessName.log("Parsed data set template");
-   ProcessLog.myProcessName.end(); // End the process and log the duration
+ Log.start({ name: "myProcess", log: true }); // Start the process. Set log to false to disable logging.
+ Log.log.myProcess("Creating data source"); // Log a message
+ Log.log.myProcess("SUCCESS - Fetched data source template");
+ Log.log.myProcess("Parsed data source template");
+ Log.end.myProcess(); // End the process and log the duration
 ```
 
 ### Example output
- ```sql 
+ ```json 
  ----- START - MYPROCESSNAME -----
-myProcessName: Creating data source
-myProcessName: SUCCESS - Fetched data source template
-myProcessName: SUCCESS - Fetched data set template
-myProcessName: Parsed data source template
-myProcessName: Parsed data set template
+myProcess: Creating data source
+myProcess: SUCCESS - Fetched data source template /process.ts:12
+myProcess: SUCCESS - Fetched data set template /process.ts:12
+myProcess: Parsed data source template /process.ts:12
+myProcess: Parsed data set template /process.ts:12
 ----- END - MYPROCESSNAME - Completed in 1.46 seconds. -----
   ```
 
@@ -70,10 +63,16 @@ This example shows the process logs of 5 processes that run in sequence. Each pr
   
 <img src="https://github.com/maxpaleo/process-logger/raw/main/media/log-example.png">
 
-### Disable a process log
+#### Disable a process log
 Set the log property to false to disable logging for a specific process. This way you can leave the logs in your code and enable them as needed.
   ```typescript
-  ProcessLog.start({ name: "datasource", log: false }); // Set log to false to disable logging.
+  Log.start({ name: "datasource", log: false }); // Set log to false to disable logging.
+  ```
+
+#### Set a specific color for a process
+You can set a specific hex color for a process by passing a color property in the start method. 
+  ```typescript
+  Log.start({ name: "datasource", log: true, color: "#2a9d8f" }); // Set a specific color for the process.
   ```
 
 ### Recommended use
