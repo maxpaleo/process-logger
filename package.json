@@ -1,6 +1,6 @@
 {
   "name": "@maxpp/processlogger",
-  "version": "1.0.39",
+  "version": "1.0.40",
   "description": "A class function for structured logging of processes from start to finish.",
   "main": "dist/index.js",
   "scripts": {
@@ -13,6 +13,10 @@
     "log",
     "logging"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxpaleo/process-logger.git"
+  },
   "author": "Max Pauwels",
   "license": "ISC",
   "dependencies": {
