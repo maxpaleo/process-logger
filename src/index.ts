@@ -8,7 +8,7 @@
 // const lines = `----------`;
 
 // /**
-//  * # ProcessLog
+//  * # Log
 //  * A class function for structured logging of processes from start to finish.
 //  *
 //  * Features
@@ -19,28 +19,28 @@
 //  * ## Usage
 //  *   Start a process:
 //  *   ```typescript
-//  *   ProcessLog.start({ name: "processName", log: true }); // Start the process by naming it. You can set the log to false to disable logging the process.
+//  *   Log.start({ name: "processName", log: true }); // Start the process by naming it. You can set the log to false to disable logging the process.
 //  *   ```
 //  *
 //  *   Logging messages within a process:
 //  *   ```typescript
-//  *   ProcessLog.processName.log("Message to log");
+//  *   Log.processName.log("Message to log");
 //  *   ```
 //  *
 //  *   Ending a process:
 //  *   ```typescript
-//  *   ProcessLog.processName.end();
+//  *   Log.processName.end();
 //  *   ```
 //  * ---
 //  * ## Examples
 //  *   ```typescript
-//  *   ProcessLog.start({ name: "datasource", log: true }); // Start the process
-//  *   ProcessLog.datasource.log("Creating data source"); // Log a message
-//  *   ProcessLog.datasource.log("SUCCESS - Fetched data source template"); // Log another message
-//  *   ProcessLog.datasource.log("SUCCESS - Fetched data set template");
-//  *   ProcessLog.datasource.log("Parsed data source template");
-//  *   ProcessLog.datasource.log("Parsed data set template");
-//  *   ProcessLog.datasource.end(); // End the process
+//  *   Log.start({ name: "datasource", log: true }); // Start the process
+//  *   Log.datasource.log("Creating data source"); // Log a message
+//  *   Log.datasource.log("SUCCESS - Fetched data source template"); // Log another message
+//  *   Log.datasource.log("SUCCESS - Fetched data set template");
+//  *   Log.datasource.log("Parsed data source template");
+//  *   Log.datasource.log("Parsed data set template");
+//  *   Log.datasource.end(); // End the process
 //  *   ```
 //  * ---
 //  * ## Example log output
@@ -54,8 +54,8 @@
 //  * ----- END DATASOURCE - Process logger. Completed in 1.46 seconds. -----
 //  * ```
 //  */
-// export class ProcessLog {
-//   private static processes: Record<string, ProcessLog> = {};
+// export class Log {
+//   private static processes: Record<string, Log> = {};
 //   private logs: string[] = [];
 //   private active: boolean = true;
 //   private startTime: Date = new Date();
@@ -88,18 +88,18 @@
 //    *
 //    * ### Example:
 //    * ```typescript
-//    * ProcessLog.start({ name: "datasource" });
+//    * Log.start({ name: "datasource" });
 //    * ```
 //    * ---
 //    * - Turn off logging for a process:
 //    * - Set `log` to false
 //    * ```typescript
-//    * ProcessLog.start({ name: "datasource", log: false });
+//    * Log.start({ name: "datasource", log: false });
 //    * ```
 //    * ---
 //    * - Add an optional description to the process:
 //    * ```typescript
-//    * ProcessLog.start({ name: "datasource", description: "Fetches data source templates." });
+//    * Log.start({ name: "datasource", description: "Fetches data source templates." });
 //    * ```
 //    */
 //   public static start({
@@ -132,7 +132,7 @@
 //   }) {
 //     const colorIndex = Math.floor(Math.random() * this.colors.length);
 //     const processColor = this.colors[colorIndex];
-//     const process = new ProcessLog(name, processColor);
+//     const process = new Log(name, processColor);
 //     this.processes[name] = process;
 //     process.active = log;
 
@@ -177,8 +177,8 @@
 //         chalk.grey(`- Completed in ${duration} seconds.`)
 //       );
 //     }
-//     delete ProcessLog[this.processName];
-//     delete ProcessLog.processes[this.processName];
+//     delete Log[this.processName];
+//     delete Log.processes[this.processName];
 //   }
 
 //   public static toggleLogging(name: string, active: boolean) {
@@ -197,8 +197,8 @@ type ProcessMethods = {
 
 const lines = `----------`;
 
-export class ProcessLog {
-  private static processes: Record<string, ProcessLog> = {};
+export class Log {
+  private static processes: Record<string, Log> = {};
   private logs: string[] = [];
   private active: boolean = true;
   private startTime: Date = new Date();
@@ -236,7 +236,7 @@ export class ProcessLog {
   }) {
     // const colorIndex = Math.floor(Math.random() * this.colors.length);
     // const processColor = this.colors[colorIndex];
-    // const process = new ProcessLog(name, processColor);
+    // const process = new Log(name, processColor);
     // this.processes[name] = process;
     // process.active = log;
 
@@ -255,7 +255,7 @@ export class ProcessLog {
       processColor = this.colors[colorIndex];
     }
 
-    const process = new ProcessLog(name, processColor);
+    const process = new Log(name, processColor);
     this.processes[name] = process;
     process.active = log;
 
@@ -315,8 +315,8 @@ export class ProcessLog {
         chalk.grey(`- Completed in ${duration} seconds.`)
       );
     }
-    delete ProcessLog.log[this.processName];
-    delete ProcessLog.end[this.processName];
-    delete ProcessLog.processes[this.processName];
+    delete Log.log[this.processName];
+    delete Log.end[this.processName];
+    delete Log.processes[this.processName];
   }
 }
