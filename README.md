@@ -34,7 +34,7 @@ Log.end.myProcess(); // Stop the process and log the duration.
 - `Log.end.myProcess()`: End a process and log the duration.
 
 ### Example
-  ```typescript
+  ```sql
  Log.start({ name: "myProcess", log: true }); // Start the process. Set log to false to disable logging.
  Log.log.myProcess("Creating data source"); // Log a message
  Log.log.myProcess("SUCCESS - Fetched data source template");
