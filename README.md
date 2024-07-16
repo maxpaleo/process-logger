@@ -28,13 +28,8 @@ Log.log.myProcess("Message to log"); // Log a message within the process.
 Log.end.myProcess(); // Stop the process and log the duration.
   ```
 
-### Operations
-- `Log.start({name: "myProcess", log: boolean})`: Start a new process and decide if it should log.
-- `Log.log.myProcess(message: string)`: Log messages within a process.
-- `Log.end.myProcess()`: End a process and log the duration.
-
 ### Example
-  ```sql
+  ```typescript
  Log.start({ name: "myProcess", log: true }); // Start the process. Set log to false to disable logging.
  Log.log.myProcess("Creating data source"); // Log a message
  Log.log.myProcess("SUCCESS - Fetched data source template");
@@ -43,7 +38,7 @@ Log.end.myProcess(); // Stop the process and log the duration.
 ```
 
 ### Example output
- ```json 
+ ```sql 
  ----- START - MYPROCESSNAME -----
 myProcess: Creating data source
 myProcess: SUCCESS - Fetched data source template /process.ts:12
