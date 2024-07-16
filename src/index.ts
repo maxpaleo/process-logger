@@ -275,7 +275,8 @@ export class ProcessLog {
       const fileName = pathSegments.pop(); // Get the last segment which is the filename
       const lineNumber = fileLineMatch ? fileLineMatch[2] : "unknown line";
       console.log(
-        this.color(`• ${this.processName} - ${message} - `),
+        this.color(`• ${this.processName} - `),
+        message,
         chalk.grey(`/${fileName}:${lineNumber}`)
       );
     }
