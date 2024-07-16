@@ -75,6 +75,12 @@ You can set a specific hex color for a process by passing a color property in th
   Log.start({ name: "datasource", log: true, color: "#2a9d8f" }); // Set a specific color for the process.
   ```
 
+  #### V2 Changes
+- The process name is now added after the `.log` or `.end`. Example: `Log.log.myProcess("Message to log");` or `Log.end.myProcess();`
+- The function can now be imported with `Log` instead of `ProcessLog`.
+- The log messages now display the file and line number where the log was called.
+- Optional `color` property to set a specific color for a process.
+
 ### Recommended use
 - Add clear operation logs for each of your processes and leave them in your code.
 - Once implemented, disabled the operation logs by setting the log property to false.
