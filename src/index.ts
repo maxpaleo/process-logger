@@ -9,8 +9,8 @@ const lines = `----------`;
 
 /**
  * ### ProcessLog
- * A logging function for used to log steps of a process.
- * - The ideal is to leave the logs in your code and enable or disable them as needed by changing the `log` property in your Log.start() call.
+ * A logging function used to log steps of a process.
+ * - The idea is to leave the logs in your code and enable or disable them as needed by enabling or disabling the `log` property in your Log.start() call.
  * - This is useful to quickly log the flow of a process when developing or debugging, and other developers can easily enable or disable the logs to see the process running.
  * ---
  *  Usage
