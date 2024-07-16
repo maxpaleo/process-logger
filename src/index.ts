@@ -227,13 +227,34 @@ export class ProcessLog {
     name,
     log = true,
     description,
+    color,
   }: {
     name: string;
     log?: boolean;
     description?: string;
+    color?: string;
   }) {
-    const colorIndex = Math.floor(Math.random() * this.colors.length);
-    const processColor = this.colors[colorIndex];
+    // const colorIndex = Math.floor(Math.random() * this.colors.length);
+    // const processColor = this.colors[colorIndex];
+    // const process = new ProcessLog(name, processColor);
+    // this.processes[name] = process;
+    // process.active = log;
+
+    let processColor: chalk.Chalk;
+
+    if (color) {
+      // Determine if the color is a string (hex code) or already a chalk color instance
+      if (typeof color === "string") {
+        processColor = chalk.hex(color);
+      } else {
+        processColor = color;
+      }
+    } else {
+      // Select a random color if no custom color is provided
+      const colorIndex = Math.floor(Math.random() * this.colors.length);
+      processColor = this.colors[colorIndex];
+    }
+
     const process = new ProcessLog(name, processColor);
     this.processes[name] = process;
     process.active = log;
