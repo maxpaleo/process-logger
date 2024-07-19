@@ -99,7 +99,7 @@ export class Log {
    * ```
    */
   public static start({
-    name,
+    name = "process",
     log = true,
     description,
     color,
