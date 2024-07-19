@@ -72,7 +72,7 @@ export class Log {
     chalk.hex("#D6A99A"),
   ];
 
-  static log: Record<string, (message: string) => void> = {};
+  static log: Record<string, (message: any) => void> = {};
   static end: Record<string, () => void> = {};
 
   private constructor(private processName: string, color: chalk.Chalk) {

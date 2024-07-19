@@ -6,4 +6,12 @@ import { ProcessLog } from "../dist/index";
 
 ProcessLog.start({ name: "myProcessName" });
 ProcessLog.log.myProcessName("Starting the process...");
+
+ProcessLog.log.myProcessName("Starting the process...");
+
+ProcessLog.log.myProcessName("Starting the process...");
+
+ProcessLog.log.myProcessName("Starting the process...");
+
+ProcessLog.log.myProcessName("Starting the process...");
 ProcessLog.end.myProcessName();
