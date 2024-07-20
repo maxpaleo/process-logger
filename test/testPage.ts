@@ -1,17 +1,13 @@
-import { ProcessLog } from "../dist/index";
+import { Log } from "../dist/index";
 
-// ProcessLog.start({ name: "myProcessName" });
-// ProcessLog.myProcessName.log("Starting the process...");
-// ProcessLog.myProcessName.end();
+// Log.start({ name: "myProcessName" });
+// Log.myProcessName.log("Starting the process...");
+// Log.myProcessName.end();
 
-ProcessLog.start({ name: "myProcessName" });
-ProcessLog.log.myProcessName("Starting the process...");
-
-ProcessLog.log.myProcessName("Starting the process...");
-
-ProcessLog.log.myProcessName("Starting the process...");
-
-ProcessLog.log.myProcessName("Starting the process...");
-
-ProcessLog.log.myProcessName("Starting the process...");
-ProcessLog.end.myProcessName();
+Log.start({ name: "myProcessName" });
+Log.log.myProcessName("Starting the process...");
+Log.log.myProcessName("Starting the process...");
+Log.log.myProcessName("Starting the process...");
+Log.log.myProcessName("Starting the process...");
+Log.log.myProcessName("Starting the process...").end();
+// Log.end.myProcessName();

@@ -1,7 +1,7 @@
 import chalk from "chalk";
 
 type ProcessMethods = {
-  log: (message: string) => void;
+  log: (message: string) => ProcessMethods;
   end: () => void;
 };
 
@@ -72,7 +72,8 @@ export class Log {
     chalk.hex("#D6A99A"),
   ];
 
-  static log: Record<string, (message: any) => void> = {};
+  // static log: Record<string, (message: any) => void> = {};
+  static log: Record<string, (message: any) => ProcessMethods> = {};
   static end: Record<string, () => void> = {};
 
   private constructor(private processName: string, color: chalk.Chalk) {
@@ -146,22 +147,17 @@ export class Log {
     this.end[name] = () => process.end();
   }
 
-  /**
-   * Log a message within the process.
-   * @example
-   * Log.log.myProcess("Message to log");
-   */
-  private log(message: string) {
+  private log(message: any): ProcessMethods {
     if (this.active) {
       const stack = new Error().stack || "";
-      const callerLine = stack.split("\n")[3]; // Adjust stack line if needed
+      const callerLine = stack.split("\n")[3];
       const fileLineMatch = callerLine.match(
         /at (?:.* \()?([^ ]+):(\d+):\d+\)?$/
       );
       const pathSegments = fileLineMatch
         ? fileLineMatch[1].split("/")
         : ["unknown file"];
-      const fileName = pathSegments.pop(); // Get the last segment which is the filename
+      const fileName = pathSegments.pop();
       const lineNumber = fileLineMatch ? fileLineMatch[2] : "unknown line";
       console.log(
         this.color(`• ${this.processName} - `),
@@ -169,6 +165,11 @@ export class Log {
         chalk.grey(`/${fileName}:${lineNumber}`)
       );
     }
+
+    return {
+      log: this.log.bind(this),
+      end: this.end.bind(this),
+    };
   }
 
   /**
